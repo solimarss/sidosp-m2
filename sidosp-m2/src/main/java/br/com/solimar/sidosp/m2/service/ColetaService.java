@@ -12,7 +12,7 @@ import javax.ws.rs.core.Response;
 import br.com.solimar.sidosp.core.domain.Coleta;
 
 @Path("/coleta")
-public class CarService {
+public class ColetaService {
 
 	@POST
 	@Path("/")
