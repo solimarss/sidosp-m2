@@ -78,6 +78,7 @@ public class ColetaWrapper implements Serializable{
 		coleta.setHorario(horario);
 		coleta.setLaboratorio(new Laboratorio(laboratorioNum));
 		coleta.setNumero(numero);
+		coleta.setData(data);
 		
 		List<Exame> exameList = new ArrayList<Exame>();
 		for (ExameWrapper exameWrapper : exames) {

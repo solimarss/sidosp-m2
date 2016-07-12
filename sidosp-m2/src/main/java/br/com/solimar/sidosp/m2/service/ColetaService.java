@@ -10,7 +10,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import br.com.solimar.sidosp.core.domain.Coleta;
-import br.com.solimar.sidosp.core.domain.Doador;
 
 @Path("/coleta")
 public class ColetaService {
@@ -23,8 +22,13 @@ public class ColetaService {
 
 
 		Coleta coleta = coletaWrapper.getColeta();
-		System.out.println("OK "+coleta.getExames().get(0).getNome());
+		System.out.println("Coleta Número: "+coleta.getNumero());
+		System.out.println("Coleta Data: "+coleta.getData());
+		System.out.println("Coleta Horário: "+coleta.getHorario());
+		System.out.println("Laboratório Numero: "+coleta.getLaboratorio().getId());
+		System.out.println("Doador Número: "+coleta.getDoador().getId());
 		
+		//Código de inserção no banco de dados
 		
 		return Response.status(200).build();
 	}
