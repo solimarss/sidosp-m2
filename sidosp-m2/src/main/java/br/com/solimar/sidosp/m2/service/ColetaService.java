@@ -10,6 +10,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import br.com.solimar.sidosp.core.domain.Coleta;
+import br.com.solimar.sidosp.core.domain.Doador;
 
 @Path("/coleta")
 public class ColetaService {
@@ -18,10 +19,13 @@ public class ColetaService {
 	@Path("/")
 	@Consumes({ MediaType.APPLICATION_JSON })
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response insert(Coleta coleta) throws URISyntaxException {
+	public Response insert(ColetaWrapper coletaWrapper) throws URISyntaxException {
 
-	
 
+		Coleta coleta = coletaWrapper.getColeta();
+		System.out.println("OK "+coleta.getExames().get(0).getNome());
+		
+		
 		return Response.status(200).build();
 	}
 
