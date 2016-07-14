@@ -1,27 +1,26 @@
 package br.com.solimar.sidosp.m2.domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import br.com.solimar.sidosp.core.domain.Coleta;
-import br.com.solimar.sidosp.core.domain.Doador;
-import br.com.solimar.sidosp.core.domain.Exame;
-import br.com.solimar.sidosp.core.domain.Laboratorio;
+import javax.xml.bind.annotation.XmlSchemaType;
 
 
 
-public class ColetaWrapper implements Serializable{
+public class Coleta implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
 	private Long numero;
 	private Long doadorNum;
 	private Long laboratorioNum;
+	
+	
+	@XmlSchemaType(name = "date")
 	private Date data;
 	private Date horario;
-	private List<ExameWrapper> exames;
+	private List<Exame> exames;
 	
 
 	public Long getNumero() {
@@ -64,30 +63,12 @@ public class ColetaWrapper implements Serializable{
 		this.horario = horario;
 	}
 
-	public List<ExameWrapper> getExames() {
+	public List<Exame> getExames() {
 		return exames;
 	}
 
-	public void setExames(List<ExameWrapper> exames) {
+	public void setExames(List<Exame> exames) {
 		this.exames = exames;
 	}
-
-	public Coleta getColeta(){
-		Coleta coleta = new Coleta();
-		coleta.setDoador(new Doador(doadorNum));
-		coleta.setHorario(horario);
-		coleta.setLaboratorio(new Laboratorio(laboratorioNum));
-		coleta.setNumero(numero);
-		coleta.setData(data);
-		
-		List<Exame> exameList = new ArrayList<Exame>();
-		for (ExameWrapper exameWrapper : exames) {
-			exameList.add(exameWrapper.getExame());
-		}	
-		coleta.setExames(exameList);
-		
-		return coleta;
-	}
-
 	
 }

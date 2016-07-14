@@ -2,38 +2,45 @@ package br.com.solimar.sidosp.m2.service;
 
 import java.net.URISyntaxException;
 
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import br.com.solimar.sidosp.core.domain.Coleta;
-import br.com.solimar.sidosp.m2.domain.ColetaWrapper;
+import br.com.solimar.sidosp.m2.business.ColetaBC;
+import br.com.solimar.sidosp.m2.domain.Coleta;
 
 @Path("/coleta")
 public class ColetaService {
+	
+	@Inject
+	private ColetaBC coletaBC;
+	
 
 	@POST
 	@Path("/")
 	@Consumes({ MediaType.APPLICATION_JSON })
-	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response insert(ColetaWrapper coletaWrapper) throws URISyntaxException {
+	public Response insert(Coleta coleta) throws URISyntaxException {
 
-
-		Coleta coleta = coletaWrapper.getColeta();
-		
-		//Prints para mostra que dados chegaram
-		System.out.println("Coleta Número: "+coleta.getNumero());
-		System.out.println("Coleta Data: "+coleta.getData());
-		System.out.println("Coleta Horário: "+coleta.getHorario());
-		System.out.println("Laboratório Numero: "+coleta.getLaboratorio().getId());
-		System.out.println("Doador Número: "+coleta.getDoador().getId());
-		
-		//Código de inserção no banco de dados
-		
+		coletaBC.insert(coleta);
+				
 		return Response.status(200).build();
 	}
 
+	
+	@GET
+	@Path("/{id}")
+	@Produces({ MediaType.APPLICATION_JSON})
+	public Response getColeta(@PathParam("id") Long num) {
+		
+		Coleta coleta = coletaBC.find(num);
+		System.out.println("Coleta "+coleta.getData());
+		return Response.status(200).entity(coleta).build();
+
+	}
 }
