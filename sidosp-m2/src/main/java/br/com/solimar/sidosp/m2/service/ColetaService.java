@@ -22,6 +22,8 @@ public class ColetaService {
 
 
 		Coleta coleta = coletaWrapper.getColeta();
+		
+		//Prints para mostra que dados chegaram
 		System.out.println("Coleta Número: "+coleta.getNumero());
 		System.out.println("Coleta Data: "+coleta.getData());
 		System.out.println("Coleta Horário: "+coleta.getHorario());
