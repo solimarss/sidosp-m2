@@ -1,4 +1,4 @@
-package br.com.solimar.sidosp.m2.service;
+package br.com.solimar.sidosp.m2.domain;
 
 import java.io.Serializable;
 

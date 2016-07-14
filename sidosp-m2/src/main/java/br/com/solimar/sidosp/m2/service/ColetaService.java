@@ -10,6 +10,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import br.com.solimar.sidosp.core.domain.Coleta;
+import br.com.solimar.sidosp.m2.domain.ColetaWrapper;
 
 @Path("/coleta")
 public class ColetaService {
