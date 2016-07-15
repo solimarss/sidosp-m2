@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlSchemaType;
-
+//imports omitidos
 
 
 public class Coleta implements Serializable{
@@ -17,7 +17,7 @@ public class Coleta implements Serializable{
 	private Long laboratorioNum;
 	
 	
-	@XmlSchemaType(name = "date")
+	
 	private Date data;
 	private Date horario;
 	private List<Exame> exames;

@@ -15,6 +15,8 @@ import javax.ws.rs.core.Response;
 import br.com.solimar.sidosp.m2.business.ColetaBC;
 import br.com.solimar.sidosp.m2.domain.Coleta;
 
+
+
 @Path("/coleta")
 public class ColetaService {
 	
