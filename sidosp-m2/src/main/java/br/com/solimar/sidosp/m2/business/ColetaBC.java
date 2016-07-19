@@ -16,12 +16,13 @@ public class ColetaBC {
 	
 	
 	public void insert(Coleta coleta) {
-		
+		System.out.println("[insert] coleta num: "+coleta.getNumero());
 		dataBase.add(coleta);
 		
 	}
 	
 	public Coleta find(Long num) {
+		System.out.println("[find] dataBase size: "+dataBase.size());
 		for (Coleta coleta : dataBase) {
 			if(num.equals(coleta.getNumero())){
 				return coleta;
